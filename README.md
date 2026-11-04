@@ -24,6 +24,7 @@ need the full syntax tree.
 | [Sublime Text](sublime) | Syntax definition, semantic tokens | LSP package |
 | [Vim](vim) | Syntax file | vim-lsp, without semantic tokens |
 | [Neovim](neovim) | Syntax file, semantic tokens | Built-in client |
+| [Eclipse IDE](eclipse) | TextMate grammar | LSP4E, without semantic tokens |
 | [Emacs](emacs) | Major mode | Eglot, without semantic tokens |
 | [Kate](kate) | Syntax definition, semantic tokens | Built-in LSP Client |
 | [BBEdit](bbedit) | Codeless language module | Built-in LSP support, licensed or trial |
