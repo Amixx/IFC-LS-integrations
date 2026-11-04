@@ -21,6 +21,7 @@ need the full syntax tree.
 | Editor | Colouring | Language server |
 | ------ | --------- | --------------- |
 | [Neovim](neovim) | Syntax file, semantic tokens | Built-in client |
+| [Helix](helix) | tree-sitter, up to about 8 MB | Built-in client |
 
 ## License
 

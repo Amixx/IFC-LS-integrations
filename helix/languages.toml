@@ -1,0 +1,12 @@
+[[language]]
+name = "ifc"
+scope = "source.ifc"
+file-types = ["ifc"]
+language-servers = ["ifc-language-server"]
+
+[language-server.ifc-language-server]
+command = "ifc-language-server"
+
+[[grammar]]
+name = "ifc"
+source = { git = "https://github.com/NepomukWolf/tree-sitter-ifc", rev = "168e01eba32896cfbdacea38fdb068343d43073c" }
