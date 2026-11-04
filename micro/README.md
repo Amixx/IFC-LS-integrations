@@ -18,8 +18,8 @@ If you have none, copy the file:
 cp micro/settings.json ~/.config/micro/settings.json
 ```
 
-The syntax file is derived from the [Neovim syntax file](../neovim/syntax/ifc.vim). It picks `.ifc` files by extension
-and other files by an `ISO-10303-21;` first line. `lsp.formatOnSave` is off because the server offers no formatting.
+The syntax file picks `.ifc` files by extension and other files by an `ISO-10303-21;` first line. `lsp.formatOnSave`
+is off because the server offers no formatting.
 
 In an IFC file:
 
@@ -30,12 +30,11 @@ In an IFC file:
 
 Diagnostics mark the gutter. Their message shows when the cursor is on them.
 
-Tested with micro 2.0.15 and lsp 0.6.2. On a 25 KB file, colouring, diagnostics, hover, go-to-definition, references
-and the `!ifc` boilerplate completion work. Hover arrives as one status-bar line, with the markdown unrendered and cut
-at the screen width. The plugin has no outline, semantic tokens, signature help or inlay hints.
+On small files, colouring, diagnostics, hover, go-to-definition, references and the `!ifc` boilerplate completion
+work. Hover arrives as one status-bar line, with the markdown unrendered and cut at the screen width. The plugin has
+no outline, semantic tokens, signature help or inlay hints.
 
-The plugin sends the whole document on open and after every edit, as a JSON string built in Lua. micro freezes until
-that is done. A 13.6 MB file took four to six and a half minutes to reach the server. After that, hover, go-to-definition and
-references answered at once. But a single edit had not reached the server after seven minutes. A 56 MB file did not
-reach the server within 11 minutes. Without the plugin, colouring handles the 56 MB file and fills in within about 30
-seconds.
+Large files freeze micro on open and after every edit. A 13.6 MB file takes four to six and a half minutes to reach
+the server. After that, hover, go-to-definition and references answer at once. But an edit then takes more than
+seven minutes to reach the server. A 56 MB file doesn't reach the server within 11 minutes. Without the plugin,
+colouring handles a 56 MB file and fills in within about 30 seconds.
