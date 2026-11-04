@@ -1,0 +1,17 @@
+{
+  "name": "ifc-ls-integrations-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/markdown-satteri": "^0.4.6",
+    "@astrojs/starlight": "^0.42.7",
+    "astro": "^7.3.6",
+    "satteri": "^0.10.5",
+    "sharp": "^0.35.3"
+  }
+}
