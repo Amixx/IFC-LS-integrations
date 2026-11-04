@@ -5,10 +5,17 @@ through [kakoune-lsp](https://github.com/kakoune-lsp/kakoune-lsp).
 
 ![Kakoune with colouring and a hover on a #id reference in an IFC file](screenshot.png)
 
-From the root of this repository, install both and copy the files into your config:
+Install Kakoune from your distribution's package and kakoune-lsp from its
+[releases](https://github.com/kakoune-lsp/kakoune-lsp/releases) or with `cargo install --locked kak-lsp`. On macOS,
+with Homebrew:
 
 ```sh
 brew install kakoune kakoune-lsp/kakoune-lsp/kakoune-lsp
+```
+
+From the root of this repository, copy the files into your config:
+
+```sh
 mkdir -p ~/.config/kak
 cp kakoune/ifc.kak kakoune/ifc-lsp.kak ~/.config/kak/
 ```
