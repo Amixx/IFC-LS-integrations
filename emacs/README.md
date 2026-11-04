@@ -1,7 +1,9 @@
 # Emacs
 
-Emacs 29 or later (tested with Emacs 31.1 and its built-in Eglot). Put [`ifc-mode.el`](ifc-mode.el) in a directory on
-your `load-path` and add to `init.el`:
+![Emacs with colouring and an Eglot hover on an IFC file](screenshot.png)
+
+You need Emacs 29 or later. Put [`ifc-mode.el`](ifc-mode.el) in a directory on your `load-path` and add this to
+`init.el`:
 
 ```elisp
 (require 'ifc-mode)
@@ -12,8 +14,10 @@ your `load-path` and add to `init.el`:
 (add-hook 'ifc-mode-hook #'eglot-ensure)
 ```
 
-Colouring, diagnostics, hover, go-to-definition, references and completion work on files of at least 56 MB. Eglot only
-requests full-document semantic tokens, which the server does not provide, so the snippet turns them off. The outline
-(`imenu`) takes seconds on a 13.6 MB file and minutes on a 56 MB one, as Eglot locates each symbol by counting lines
-from the top of the buffer. Emacs asks for confirmation before opening files above `large-file-warning-threshold`
-(10 MB by default).
+Colouring, diagnostics, hover, go-to-definition, references and completion work on files of at least 56 MB.
+
+Semantic colouring isn't available in Emacs, so the snippet turns it off.
+
+The outline (`imenu`) takes seconds on a 13.6 MB file and minutes on a 56 MB one.
+
+Emacs asks before opening files above `large-file-warning-threshold` (10 MB by default).
