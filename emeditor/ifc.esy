@@ -1,0 +1,43 @@
+#Highlight=on
+#BeginTag=
+#EndTag=
+#CommentBegin=/*
+#CommentEnd=*/
+#LineComment1=
+#LineComment2=
+#SingleQuote=on
+#DoubleQuote=off
+#ContinueQuote=off
+#Escape=
+#ScriptBegin=
+#ScriptEnd=
+#SpecialSyntax=off
+#HighlightBraces=off
+
+#Keyword color=6,word=off,rightall=off,case=on,insidetag=off,regexp=on
+^^\s*(END-)?ISO-10303-21(?=\s*^;)
+^^\s*(HEADER|DATA|ENDSEC)(?=\s*[^;(])
+
+#Keyword color=10,word=on,rightall=off,case=on,insidetag=off,regexp=off
+FILE_DESCRIPTION
+FILE_NAME
+FILE_SCHEMA
+FILE_POPULATION
+SECTION_LANGUAGE
+SECTION_CONTEXT
+SCHEMA_POPULATION
+
+#Keyword color=4,word=off,rightall=off,case=on,insidetag=off,regexp=on
+\b(?!(FILE_DESCRIPTION|FILE_NAME|FILE_SCHEMA|FILE_POPULATION|SECTION_LANGUAGE|SECTION_CONTEXT|SCHEMA_POPULATION)\b)[A-Z][A-Z0-9_]*(?=\s*\()
+
+#Keyword color=5,word=off,rightall=off,case=on,insidetag=off,regexp=on
+^#\d+
+
+#Keyword color=7,word=off,rightall=off,case=on,insidetag=off,regexp=on
+\.[A-Z_][A-Z0-9_]*\.
+
+#Keyword color=2,word=off,rightall=off,case=on,insidetag=off,regexp=on
+(?<![\w^#.-])[-+]?\d+(\.\d*)?([eE][-+]?\d+)?
+
+#Keyword color=3,word=off,rightall=off,case=on,insidetag=off,regexp=on
+\$|(?<=[(,])\*(?=[,)])
