@@ -17,6 +17,6 @@ Then enable the server in `init.lua`:
 vim.lsp.enable('ifc')
 ```
 
-Colouring and the server connection work on files of at least 180 MB. The file-type rule wins over size-based
-detection such as LazyVim's snacks.nvim `bigfile`. Some lines run to hundreds of thousands of characters. On those,
-semantic colours take minutes to fill in, because Neovim's cost per token grows with line length.
+Colouring and the server connection work on files of at least 180 MB. Size-based detection such as LazyVim's
+snacks.nvim `bigfile` leaves `.ifc` files alone. On lines of hundreds of thousands of characters, semantic colours take
+minutes to fill in.

@@ -10,7 +10,6 @@ cp sublime/IFC.sublime-syntax "<Packages>/User/"
 Then open **Preferences > Package Settings > LSP > Settings**. From [`LSP.sublime-settings`](LSP.sublime-settings),
 merge the `clients.ifc-language-server` entry and `"semantic_highlighting": true` into your settings. Restart Sublime.
 
-Tested with build 4215 and the LSP package. Colouring, diagnostics, completion and go-to-definition work. Sublime
-requests semantic tokens for the visible range. Hover, references and outline are untested.
+Colouring, diagnostics, completion and go-to-definition work. Not checked yet: hover, references, outline.
 
-A 56 MB file opened as Plain Text. Choose **View > Syntax > IFC STEP** for it.
+A 56 MB file opens as Plain Text. Choose **View > Syntax > IFC STEP** for it.
