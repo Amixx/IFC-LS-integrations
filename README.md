@@ -6,6 +6,8 @@ language-client configuration for editors that need no extension of their own.
 VS Code and Zed have their own extensions: [vscode-ifc](https://github.com/NepomukWolf/vscode-ifc) and
 [zed-ifc](https://github.com/Finradon/zed-ifc).
 
+The setup guides are also on the [documentation site](https://amixx.github.io/IFC-LS-integrations/).
+
 ## Setup
 
 1. Download `ifc-language-server` from the language server's
