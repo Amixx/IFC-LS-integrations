@@ -17,7 +17,16 @@ Your `vimrc` needs `filetype on` and `syntax on`.
 [`plugin/ifc-lsp.vim`](plugin/ifc-lsp.vim) registers the server and sets omni completion (`CTRL-X CTRL-O`) for IFC
 buffers. Use `:LspHover`, `:LspDefinition`, `:LspReferences` and `:LspDocumentSymbol`.
 
-With [yegappan/lsp](https://github.com/yegappan/lsp) instead, skip `plugin/` and add to your `vimrc`:
+With [yegappan/lsp](https://github.com/yegappan/lsp) instead, run these in place of the block above:
+
+```sh
+mkdir -p ~/.vim/syntax ~/.vim/pack/plugins/start
+cp neovim/syntax/ifc.vim ~/.vim/syntax/
+cp -R vim/ftdetect ~/.vim/
+git clone https://github.com/yegappan/lsp ~/.vim/pack/plugins/start/lsp
+```
+
+and add to your `vimrc`, which also needs `filetype on` and `syntax on`:
 
 ```vim
 autocmd User LspSetup call LspAddServer([#{name: 'ifc-language-server', filetype: ['ifc'], path: 'ifc-language-server', args: []}])
