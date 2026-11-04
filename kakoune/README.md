@@ -1,9 +1,9 @@
 # Kakoune
 
+![Kakoune with colouring and a hover on a #id reference in an IFC file](screenshot.png)
+
 Colouring comes from Kakoune highlighters in [`ifc.kak`](ifc.kak); [`ifc-lsp.kak`](ifc-lsp.kak) connects the server
 through [kakoune-lsp](https://github.com/kakoune-lsp/kakoune-lsp).
-
-![Kakoune with colouring and a hover on a #id reference in an IFC file](screenshot.png)
 
 Install Kakoune from your distribution's package and kakoune-lsp from its
 [releases](https://github.com/kakoune-lsp/kakoune-lsp/releases) or with `cargo install --locked kak-lsp`. On macOS,
