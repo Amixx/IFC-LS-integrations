@@ -20,13 +20,14 @@ need the full syntax tree.
 
 | Editor | Colouring | Language server |
 | ------ | --------- | --------------- |
-| [Neovim](neovim) | Syntax file, semantic tokens | Built-in client |
-| [Helix](helix) | tree-sitter, up to about 8 MB | Built-in client |
-| [Emacs](emacs) | Major mode | Eglot, without semantic tokens |
 | [Notepad++](notepad++) | User-defined language | None |
-| [Kate](kate) | Syntax definition, semantic tokens | Built-in LSP Client |
 | [Sublime Text](sublime) | Syntax definition, semantic tokens | LSP package |
+| [Vim](vim) | Syntax file | vim-lsp, without semantic tokens |
+| [Neovim](neovim) | Syntax file, semantic tokens | Built-in client |
+| [Emacs](emacs) | Major mode | Eglot, without semantic tokens |
+| [Kate](kate) | Syntax definition, semantic tokens | Built-in LSP Client |
 | [BBEdit](bbedit) | Codeless language module | Built-in LSP support, licensed or trial |
+| [Helix](helix) | tree-sitter, up to about 8 MB | Built-in client |
 
 ## License
 
