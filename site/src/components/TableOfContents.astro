@@ -1,0 +1,24 @@
+---
+import Default from '@astrojs/starlight/components/TableOfContents.astro';
+import logo from '../assets/logo.svg';
+---
+
+<Default />
+<div class="aside-logo">
+	<img src={logo.src} alt="" width="72" height="72" />
+</div>
+
+<style>
+	.aside-logo {
+		display: flex;
+		justify-content: center;
+		margin-top: 1.5rem;
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--sl-color-hairline);
+	}
+	.aside-logo img {
+		width: 72px;
+		height: auto;
+		opacity: 0.78;
+	}
+</style>

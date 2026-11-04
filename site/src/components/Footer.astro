@@ -1,0 +1,32 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+import { repo } from '../readmes';
+---
+
+<Default />
+<div class="site-footer">
+	<span>© {new Date().getFullYear()} Imants Liepins</span>
+	<a href={`https://github.com/${repo}/blob/main/LICENSE`}>License</a>
+	<a href="https://github.com/NepomukWolf/vscode-ifc">Logo: vscode-ifc, MIT, © Nepomuk Wolf</a>
+</div>
+
+<style>
+	.site-footer {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem 1rem;
+		margin-top: 2rem;
+		padding-top: 1.25rem;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+		border-top: 1px solid var(--sl-color-hairline);
+	}
+	.site-footer a {
+		color: var(--sl-color-gray-3);
+		text-decoration: none;
+	}
+	.site-footer a:hover {
+		color: var(--sl-color-white);
+	}
+</style>
