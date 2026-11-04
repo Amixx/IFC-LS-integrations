@@ -22,6 +22,7 @@ need the full syntax tree.
 | ------ | --------- | --------------- |
 | [Neovim](neovim) | Syntax file, semantic tokens | Built-in client |
 | [Helix](helix) | tree-sitter, up to about 8 MB | Built-in client |
+| [Emacs](emacs) | Major mode | Eglot, without semantic tokens |
 
 ## License
 
