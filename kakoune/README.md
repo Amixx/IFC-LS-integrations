@@ -3,6 +3,8 @@
 Colouring comes from Kakoune highlighters in [`ifc.kak`](ifc.kak); [`ifc-lsp.kak`](ifc-lsp.kak) connects the server
 through [kakoune-lsp](https://github.com/kakoune-lsp/kakoune-lsp).
 
+![Kakoune with colouring and a hover on a #id reference in an IFC file](screenshot.png)
+
 From the root of this repository, install both and copy the files into your config:
 
 ```sh
