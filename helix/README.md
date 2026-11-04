@@ -1,5 +1,7 @@
 # Helix
 
+![Helix with colouring and a hover popup on an IFC file](screenshot.png)
+
 Add [`languages.toml`](languages.toml) to `~/.config/helix/languages.toml`. It uses the
 [tree-sitter-ifc](https://github.com/NepomukWolf/tree-sitter-ifc) grammar, pinned by commit.
 
