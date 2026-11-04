@@ -30,12 +30,11 @@ lsp-enable
 ```
 
 `.ifc` files are detected by name. `.stp`, `.step` and `.p21` files are detected only when their first line is
-`ISO-10303-21;`. The highlighter patterns follow the [Neovim syntax file](../neovim/syntax/ifc.vim).
+`ISO-10303-21;`.
 
-Leave `lsp_debug` off on large files. With it on, kak-lsp copies the whole document into the `*debug*` buffer, and an
-edit freezes Kakoune.
+Leave `lsp_debug` off on large files. With it on, an edit freezes Kakoune.
 
-Tested with Kakoune 2026.05.21 and kakoune-lsp 22.0.0. On a 13.6 MB file, these work:
+These work:
 
 - colouring
 - diagnostics
@@ -47,4 +46,4 @@ Tested with Kakoune 2026.05.21 and kakoune-lsp 22.0.0. On a 13.6 MB file, these 
 
 A 56 MB file opens at once with the same features. Diagnostics arrive about 30 seconds after an edit.
 
-There are no semantic tokens. kak-lsp requests them for the whole document only, and the server offers them per range.
+There is no semantic colouring.
