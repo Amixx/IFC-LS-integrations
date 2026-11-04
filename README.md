@@ -30,6 +30,7 @@ need the full syntax tree.
 | [Kate](kate) | Syntax definition, semantic tokens | Built-in LSP Client |
 | [BBEdit](bbedit) | Codeless language module | Built-in LSP support, licensed or trial |
 | [Helix](helix) | tree-sitter, up to about 8 MB | Built-in client |
+| [micro](micro) | Syntax file | lsp plugin, slow above a few MB |
 | [Kakoune](kakoune) | Highlighters | kakoune-lsp, without semantic tokens |
 
 ## License
