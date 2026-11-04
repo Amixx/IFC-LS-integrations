@@ -39,11 +39,6 @@
 		<string>ifc-language-server</string>
 		<key>ServerLanguageID</key>
 		<string>ifc</string>
-		<key>ServerInitParams</key>
-		<dict>
-			<key>semanticTokensEnabled</key>
-			<true/>
-		</dict>
 	</dict>
 	<key>Language Features</key>
 	<dict>
