@@ -17,11 +17,11 @@ const prompt = [
 	`Set up ${editor} for IFC files on this computer by following https://github.com/${repo}/blob/main/${folder}/README.md.`,
 	...(hasLanguageServer
 		? [
-				`First install the \`ifc-language-server\` build for this system from https://github.com/NepomukWolf/IFC-Language-Server/releases/latest, without sudo, and put it on \`PATH\`.${gui ? " Apps opened from the macOS Dock don't inherit the shell's `PATH`, so give the editor the server's absolute path." : ''}`,
+				`First install the \`ifc-language-server\` build for this system from https://github.com/NepomukWolf/IFC-Language-Server/releases/latest, without sudo, and put it on \`PATH\`. It has no \`--version\` flag; check it by opening an \`.ifc\` file in the editor.${gui ? " Apps opened from the macOS Dock don't inherit the shell's `PATH`, so give the editor the server's absolute path." : ''}`,
 			]
 		: []),
 	'Change only what this setup needs. Back up any config file before you edit it, and merge into existing settings instead of overwriting them.',
-	'Check that it works where you can. Then tell me what you changed, how to undo it, and what I should check myself.',
+	'Check that it works where you can. Then tell me what you changed, including any shell profile, how to undo it, and what I should check myself.',
 ].join('\n\n');
 ---
 
