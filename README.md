@@ -26,6 +26,7 @@ need the full syntax tree.
 | [Notepad++](notepad++) | User-defined language | None |
 | [Kate](kate) | Syntax definition, semantic tokens | Built-in LSP Client |
 | [Sublime Text](sublime) | Syntax definition, semantic tokens | LSP package |
+| [BBEdit](bbedit) | Codeless language module | Built-in LSP support, licensed or trial |
 
 ## License
 
