@@ -36,4 +36,4 @@ With vim-lsp, colouring, diagnostics, hover, go-to-definition, references and ou
 56 MB. Diagnostics refresh about 12 s after an edit to a 56 MB file. Completion offers the `!ifc` boilerplate.
 
 There is no semantic colouring with either client. With yegappan/lsp, diagnostics, hover, go-to-definition and
-references work. Not checked yet: yegappan/lsp on large files.
+references work.

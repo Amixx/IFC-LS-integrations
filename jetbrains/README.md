@@ -54,5 +54,3 @@ These work, also on a 56 MB file:
 
 On a 56 MB file, the editor freezes for 10 to 20 seconds when opening it and after edits. Diagnostics take up to a
 minute to update.
-
-Not checked yet: Linux, Windows, the **Settings** dialogs in steps 1 and 2, other JetBrains IDEs such as PyCharm.
