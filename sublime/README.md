@@ -1,5 +1,7 @@
 # Sublime Text
 
+![Sublime Text with colouring and a hover popup on an IFC file](screenshot.png)
+
 Install the [LSP](https://packagecontrol.io/packages/LSP) package through Package Control and copy
 [`IFC.sublime-syntax`](IFC.sublime-syntax) into `Packages/User/` (**Preferences > Browse Packages…**):
 
