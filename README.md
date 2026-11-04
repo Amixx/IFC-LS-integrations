@@ -20,6 +20,7 @@ need the full syntax tree.
 
 | Editor | Colouring | Language server |
 | ------ | --------- | --------------- |
+| [Neovim](neovim) | Syntax file, semantic tokens | Built-in client |
 
 ## License
 
