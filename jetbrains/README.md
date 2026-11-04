@@ -30,8 +30,8 @@ Then, in the IDE:
 4. For files of about 50 MB, raise **Help > Change Memory Settings** to 4096 MB; with the default 2048 MB the IDE runs
    out of memory on them.
 
-Find references with **LSP Reference(s)** (**Go To** in the editor's context menu, or
-<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>H</kbd>); the IDE's own **Show Usages** finds nothing. LSP4IJ only requests
+Find references with **LSP Reference(s)** (**Go To** in the editor's context menu, or the
+shortcut shown next to it there); the IDE's own **Show Usages** finds nothing. LSP4IJ only requests
 full-document semantic tokens, which the server does not provide, so the template turns them off. The IDE's spell
 checker marks entity names as typos; turn off **Settings > Editor > Inspections > Proofreading > Typo** if that gets in
 the way.
