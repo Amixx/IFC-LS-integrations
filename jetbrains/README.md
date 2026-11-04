@@ -1,11 +1,11 @@
 # JetBrains IDEs
 
+![IntelliJ IDEA with colouring, inlay hints and a hover on an IFC file](screenshot.png)
+
 IntelliJ IDEA 2026.2 or later (its free tier is enough) with Red Hat's
 [LSP4IJ](https://github.com/redhat-developer/lsp4ij) plugin; tested with IntelliJ IDEA 2026.2.4 and LSP4IJ 0.21.0.
 Colouring comes from a TextMate bundle built from [vscode-ifc](https://github.com/NepomukWolf/vscode-ifc)'s grammar
 and language configuration, copied unchanged under its MIT licence ([`LICENSE`](ifc-textmate/LICENSE)).
-
-![IntelliJ IDEA with colouring, inlay hints and a hover on an IFC file](screenshot.png)
 
 With the IDE closed, install LSP4IJ (or install it from **Settings > Plugins**):
 
