@@ -1,0 +1,22 @@
+{
+  "name": "ifc",
+  "displayName": "IFC STEP",
+  "license": "MIT",
+  "contributes": {
+    "languages": [
+      {
+        "id": "ifc",
+        "aliases": ["IFC"],
+        "extensions": [".ifc"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ifc",
+        "scopeName": "source.ifc",
+        "path": "./syntaxes/ifc.tmLanguage.json"
+      }
+    ]
+  }
+}

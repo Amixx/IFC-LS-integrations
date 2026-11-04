@@ -1,0 +1,15 @@
+{
+  "id": "ifc-language-server",
+  "name": "IFC Language Server",
+  "programArgs": {
+    "default": "ifc-language-server"
+  },
+  "fileTypeMappings": [
+    {
+      "fileType": {
+        "patterns": ["*.ifc"]
+      },
+      "languageId": "ifc"
+    }
+  ]
+}
