@@ -41,6 +41,6 @@ the way.
 Tested on macOS with 25 KB, 13.6 MB and 56 MB files: colouring, diagnostics, hover, go-to-definition, references,
 outline (**Structure**), inlay hints with attribute names, and completion, which the server only offers for the `!ifc`
 boilerplate. On the 56 MB file, the editor freezes for 10 to 20 seconds when opening it and after edits, and
-diagnostics take up to a minute to update. The two **Settings** steps were run through the IDE APIs behind those pages
-rather than clicked through. Semantic tokens and other JetBrains IDEs (PyCharm, WebStorm, Rider, and so on) are
+diagnostics take up to a minute to update. The **Settings** dialogs in steps 1 and 2 are untested by
+hand. Semantic tokens and other JetBrains IDEs (PyCharm, WebStorm, Rider, and so on) are
 untested; LSP4IJ and TextMate bundles exist for them too, so the same setup should apply.
