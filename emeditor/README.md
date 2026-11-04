@@ -18,4 +18,4 @@ Section keywords, header entities, entity names, `#id` references, strings with 
 numbers, `$` and `*`, and `/* */` comments are coloured. Files up to at least 2.75 GB stay coloured, and lines of 1 MB
 stay responsive.
 
-Not checked yet on Windows itself.
+Not checked yet on Windows.
