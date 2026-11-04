@@ -1,5 +1,7 @@
 # Kate
 
+![Kate with colouring and a hover popup on an IFC file](screenshot.png)
+
 From the root of this repository, copy the syntax definition and the LSP configuration into place. If you already have
 `settings.json`, merge [`lspclient-settings.json`](lspclient-settings.json) in via **Settings > Configure Kate > LSP
 Client > User Server Settings** instead.
