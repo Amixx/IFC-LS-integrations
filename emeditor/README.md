@@ -17,5 +17,3 @@ This is colouring only: EmEditor's language server setting offers a fixed list o
 Section keywords, header entities, entity names, `#id` references, strings with `''` escapes, enums and booleans,
 numbers, `$` and `*`, and `/* */` comments are coloured. Files up to at least 2.75 GB stay coloured, and lines of 1 MB
 stay responsive.
-
-Not checked yet on Windows.
