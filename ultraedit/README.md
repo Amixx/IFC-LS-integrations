@@ -22,5 +22,3 @@ colours.
 Colouring stays on for files of at least 1 GB. If **Settings > File Handling > Large Files** is set to disable syntax
 highlighting, files above its threshold open without colouring. Lines longer than 4096 columns can be miscoloured where
 UltraEdit wraps them.
-
-Not checked yet: Windows, Linux, and colouring far down a very large file.
