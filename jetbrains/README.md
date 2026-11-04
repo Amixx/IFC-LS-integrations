@@ -3,10 +3,10 @@
 ![IntelliJ IDEA with colouring, inlay hints and a hover on an IFC file](screenshot.png)
 
 You need IntelliJ IDEA 2026.2 or later with Red Hat's [LSP4IJ](https://github.com/redhat-developer/lsp4ij) plugin.
-Its free tier is enough. Tested with IntelliJ IDEA 2026.2.4 and LSP4IJ 0.21.0.
+Its free tier is enough.
 
-Colouring comes from a TextMate bundle built from [vscode-ifc](https://github.com/NepomukWolf/vscode-ifc)'s grammar
-and language configuration. These are copied unchanged under their MIT licence ([`LICENSE`](ifc-textmate/LICENSE)).
+The TextMate bundle's grammar and language configuration are from
+[vscode-ifc](https://github.com/NepomukWolf/vscode-ifc), MIT licence ([`LICENSE`](ifc-textmate/LICENSE)).
 
 With the IDE closed, install LSP4IJ (or install it from **Settings > Plugins**):
 
@@ -36,12 +36,12 @@ Only `.ifc` files are mapped. `.stp`, `.step` and `.p21` files get neither colou
 Find references with **LSP Reference(s)**. It is under **Go To** in the editor's context menu, with its shortcut shown
 next to it. The IDE's own **Show Usages** finds nothing.
 
-LSP4IJ only requests full-document semantic tokens. The server does not provide them, so the template turns them off.
+Semantic colouring isn't available with LSP4IJ, so the template turns it off.
 
 The IDE's spell checker marks entity names as typos. If that gets in the way, turn off **Settings > Editor >
 Inspections > Proofreading > Typo**.
 
-Tested on macOS with 25 KB, 13.6 MB and 56 MB files. These work:
+These work, also on a 56 MB file:
 
 - colouring
 - diagnostics
@@ -52,9 +52,7 @@ Tested on macOS with 25 KB, 13.6 MB and 56 MB files. These work:
 - inlay hints with attribute names
 - completion, which the server only offers for the `!ifc` boilerplate
 
-On the 56 MB file, the editor freezes for 10 to 20 seconds when opening it and after edits. Diagnostics take up to a
+On a 56 MB file, the editor freezes for 10 to 20 seconds when opening it and after edits. Diagnostics take up to a
 minute to update.
 
-The **Settings** dialogs in steps 1 and 2 are untested by hand. Semantic tokens are untested. Other JetBrains IDEs
-(PyCharm, WebStorm, Rider, and so on) are untested too. LSP4IJ and TextMate bundles exist for them, so the same setup
-should apply.
+Not checked yet: Linux, Windows, the **Settings** dialogs in steps 1 and 2, other JetBrains IDEs such as PyCharm.
