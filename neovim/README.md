@@ -9,6 +9,8 @@ config:
 cp -R neovim/ftdetect neovim/lsp neovim/syntax ~/.config/nvim/
 ```
 
+If your config lives elsewhere, for example on Windows, copy them to the directory `:echo stdpath('config')` prints.
+
 Then enable the server in `init.lua`:
 
 ```lua
