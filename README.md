@@ -24,6 +24,7 @@ need the full syntax tree.
 | [Helix](helix) | tree-sitter, up to about 8 MB | Built-in client |
 | [Emacs](emacs) | Major mode | Eglot, without semantic tokens |
 | [Notepad++](notepad++) | User-defined language | None |
+| [Kate](kate) | Syntax definition, semantic tokens | Built-in LSP Client |
 
 ## License
 
