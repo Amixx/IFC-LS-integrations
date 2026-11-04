@@ -12,10 +12,8 @@ SCHEMA_POPULATION SECTION_CONTEXT SECTION_LANGUAGE
 ** IFC
 /C4"References"
 ** #
-/C5"Booleans"
-.F. .T. .U.
-/C6"Enumerations"
+/C5"Enumerations and booleans"
 ** .A .B .C .D .E .F .G .H .I .J .K .L .M .N .O .P .Q .R .S .T .U .V .W .X .Y .Z
-/C7"Null and derived"
+/C6"Null and derived"
 $
 *

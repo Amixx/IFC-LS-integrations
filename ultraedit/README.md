@@ -15,11 +15,12 @@ On macOS, from the root of this repository:
 cp ultraedit/ifc.uew ~/Library/Application\ Support/UltraEdit/wordfiles/
 ```
 
-Section keywords, header entities, entity names starting with `IFC`, `#id` references, strings, enumerations, booleans,
-numbers, `$`, `*` and comments each get a colour group; the theme picks the colours.
+Section keywords, header entities, entity names starting with `IFC`, `#id` references, strings, enumerations and
+booleans, `$`, `*` and comments each get a colour group, and numbers use the theme's number colour. The theme picks the
+colours.
 
-Colouring stays on for files of at least 1 GB. Files of a few hundred MB open in a few seconds, a 1 GB file in about
-20 seconds. If **Settings > File Handling > Large Files** is set to disable syntax highlighting, files above its
-threshold open without colouring.
+Colouring stays on for files of at least 1 GB. If **Settings > File Handling > Large Files** is set to disable syntax
+highlighting, files above its threshold open without colouring. Lines longer than 4096 columns can be miscoloured where
+UltraEdit wraps them.
 
 Not checked yet: Windows, Linux, and colouring far down a very large file.
