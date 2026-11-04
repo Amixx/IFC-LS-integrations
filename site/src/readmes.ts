@@ -57,29 +57,9 @@ export function editorFolders(repoRoot: string): string[] {
 	return folders.sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
 }
 
-export const imageTypes: Record<string, string> = {
-	'.png': 'image/png',
-	'.jpg': 'image/jpeg',
-	'.jpeg': 'image/jpeg',
-	'.gif': 'image/gif',
-	'.svg': 'image/svg+xml',
-	'.webp': 'image/webp',
-	'.avif': 'image/avif',
-};
-
-/** Image files anywhere in the repository outside the site, as paths relative to the repository root. */
-export function repoImages(repoRoot: string, dir = ''): string[] {
-	return readdirSync(join(repoRoot, dir), { withFileTypes: true }).flatMap((entry) => {
-		if (entry.name.startsWith('.') || excludedFolders.has(entry.name)) return [];
-		const path = posix.join(dir, entry.name);
-		if (entry.isDirectory()) return repoImages(repoRoot, path);
-		return posix.extname(entry.name).toLowerCase() in imageTypes ? [path] : [];
-	});
-}
-
 /**
- * Rewrites relative URLs in the repository's READMEs: links to a page's folder become site links, other links become
- * GitHub links, and images point at the copies the site serves at their repository path.
+ * Rewrites relative URLs in the repository's READMEs: links to a page's folder become site links and other links become
+ * GitHub links.
  */
 export function readmeLinks(repoRoot: string, base: string): MdastPluginEntry {
 	const basePath = base.replace(/\/$/, '');
@@ -109,10 +89,6 @@ export function readmeLinks(repoRoot: string, base: string): MdastPluginEntry {
 					? `${basePath}/${target ? `${target}/` : ''}${suffix}`
 					: `https://github.com/${repo}/${isDir ? 'tree' : 'blob'}/main/${target}${suffix}`;
 				ctx.setProperty(node, 'url', url);
-			},
-			image(node, ctx) {
-				const resolved = resolve(node.url);
-				if (resolved) ctx.setProperty(node, 'url', `${basePath}/${resolved.target}`);
 			},
 		});
 	};

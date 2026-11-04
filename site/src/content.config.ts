@@ -16,7 +16,8 @@ function readmeLoader(): Loader {
 				const table = new Map(editorTable(repoRoot).map((row) => [row.folder, row.cells]));
 				store.clear();
 				for (const folder of ['', ...folders]) {
-					const fileUrl = new URL(`${folder ? `${folder}/` : ''}README.md`, rootUrl);
+					const path = `${folder ? `${folder}/` : ''}README.md`;
+					const fileUrl = new URL(path, rootUrl);
 					const source = readFileSync(fileUrl, 'utf8');
 					const title = source.match(/^# (.+)$/m)?.[1]?.trim();
 					if (!title) throw new Error(`${fileURLToPath(fileUrl)} has no "# " heading`);
@@ -33,7 +34,14 @@ function readmeLoader(): Loader {
 					const data = await parseData({ id, data: { title, hasLanguageServer } });
 					const rendered = await renderMarkdown(body, { fileURL: fileUrl });
 					if (folder) rendered.metadata.headings = [...(rendered.metadata.headings ?? []), agentHeading];
-					store.set({ id, data, body, rendered });
+					store.set({
+						id,
+						data,
+						body,
+						rendered,
+						filePath: `../${path}`,
+						assetImports: rendered.metadata?.imagePaths,
+					});
 				}
 			};
 			await sync();
