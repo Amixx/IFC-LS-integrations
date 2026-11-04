@@ -29,7 +29,7 @@ syn match   ifcNull           "\$"
 syn match   ifcDerived        "\*"
 syn match   ifcDelimiter      "[=(),;]"
 
-syn region  ifcString         start=+'+ skip=+''+ end=+'+ contains=ifcStringEscape
+syn region  ifcString         matchgroup=ifcString start=+'+ skip=+''+ end=+'+ contains=ifcStringEscape
 syn match   ifcStringEscape   contained "''\|\\\\\|\\[SP]\\.\|\\X\\\x\x\|\\X[24]\\\x*\\X0\\"
 syn region  ifcBinary         start=+"+ end=+"+ oneline
 syn region  ifcComment        start="/\*" end="\*/" contains=@Spell
