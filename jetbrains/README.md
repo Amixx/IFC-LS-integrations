@@ -5,6 +5,8 @@ IntelliJ IDEA 2026.2 or later (its free tier is enough) with Red Hat's
 Colouring comes from a TextMate bundle built from [vscode-ifc](https://github.com/NepomukWolf/vscode-ifc)'s grammar
 and language configuration.
 
+![IntelliJ IDEA with colouring, inlay hints and a hover on an IFC file](screenshot.png)
+
 With the IDE closed, install LSP4IJ (or install it from **Settings > Plugins**):
 
 ```sh
