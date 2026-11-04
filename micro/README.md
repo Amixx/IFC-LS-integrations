@@ -1,15 +1,20 @@
 # micro
 
-From the root of this repository, copy the syntax file and install the
-[lsp](https://github.com/AndCake/micro-plugin-lsp) plugin. Already have a `settings.json`? Then merge the two keys from
-[`settings.json`](settings.json) into it instead of copying it.
-
 ![micro with colouring and a diagnostic on an IFC file](screenshot.png)
+
+From the root of this repository, copy the syntax file and install the
+[lsp](https://github.com/AndCake/micro-plugin-lsp) plugin.
 
 ```sh
 mkdir -p ~/.config/micro/syntax
 cp micro/ifc.yaml ~/.config/micro/syntax/ifc.yaml
 micro -plugin install lsp
+```
+
+If you already have a `~/.config/micro/settings.json`, merge the two keys from [`settings.json`](settings.json) into it.
+If you have none, copy the file:
+
+```sh
 cp micro/settings.json ~/.config/micro/settings.json
 ```
 
@@ -30,7 +35,7 @@ and the `!ifc` boilerplate completion work. Hover arrives as one status-bar line
 at the screen width. The plugin has no outline, semantic tokens, signature help or inlay hints.
 
 The plugin sends the whole document on open and after every edit, as a JSON string built in Lua. micro freezes until
-that is done. A 13.6 MB file took four to six minutes to reach the server. After that, hover, go-to-definition and
+that is done. A 13.6 MB file took four to six and a half minutes to reach the server. After that, hover, go-to-definition and
 references answered at once. But a single edit had not reached the server after seven minutes. A 56 MB file did not
 reach the server within 11 minutes. Without the plugin, colouring handles the 56 MB file and fills in within about 30
 seconds.
