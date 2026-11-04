@@ -5,6 +5,7 @@ import { defineMdastPlugin, type MdastPluginEntry } from 'satteri';
 
 export const repo = 'Amixx/IFC-LS-integrations';
 export const siteUrl = 'https://amixx.github.io/IFC-LS-integrations/';
+export const agentHeading = { depth: 2, slug: 'set-up-with-an-ai-agent', text: 'Set up with an AI agent' };
 
 const excludedFolders = new Set(['site', 'node_modules']);
 

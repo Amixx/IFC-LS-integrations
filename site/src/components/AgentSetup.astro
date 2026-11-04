@@ -1,0 +1,132 @@
+---
+import { Code } from '@astrojs/starlight/components';
+import { agentHeading, repo } from '../readmes';
+
+interface Props {
+	folder: string;
+	editor: string;
+	hasLanguageServer: boolean;
+}
+
+const { folder, editor, hasLanguageServer } = Astro.props;
+
+const terminalEditors = new Set(['neovim', 'vim', 'helix', 'micro', 'kakoune']);
+const gui = !terminalEditors.has(folder);
+
+const steps = [
+	`Shallow-clone https://github.com/${repo} into a temporary directory and read \`${folder}/README.md\` and the files it references. If the installed ${editor} is older than the README requires, stop and tell me.`,
+	...(hasLanguageServer
+		? [
+				'Install the `ifc-language-server` build for this OS and CPU from https://github.com/NepomukWolf/IFC-Language-Server/releases/latest, without sudo, into `~/.local/bin` (`%LOCALAPPDATA%\\Programs\\ifc-language-server` on Windows), and put that directory on `PATH`. If that only takes effect after logging in again, tell me. If there is no build for this system, stop and tell me.',
+			]
+		: []),
+	`Follow the README${hasLanguageServer ? ', installing the language client plugin first if it needs one' : ''}. Where it copies a file over an existing config, merge into it instead. Copy what the setup needs out of the clone; no config may point into it.`,
+	...(hasLanguageServer && gui
+		? [
+				"Apps opened from the macOS Dock or Finder don't inherit the shell's `PATH`, so give the server's absolute path wherever the config takes the server command.",
+			]
+		: []),
+	...(hasLanguageServer
+		? [
+				'From a fresh shell, check that the server is on `PATH` and answers. It has no `--version` flag and reads LSP messages from stdin, so pipe `initialize`, `shutdown` and `exit` into it with a timeout of a few seconds.',
+			]
+		: []),
+	`Create a minimal \`.ifc\` file. If ${editor} has a headless or batch mode, use it to check that it recognises the file${hasLanguageServer ? ' and that the server attaches. The server starts asynchronously, so wait for it' : ''}.`,
+	`Open the file in ${editor} and check that ${hasLanguageServer ? 'a diagnostic or hover appears' : 'it is coloured'}. If you can't do this yourself, give me the exact steps to check it.`,
+	'Delete the clone and anything you downloaded. Report what you changed, including any shell profile edit, where the backups are, how to undo each change, and which checks you ran and which you left to me.',
+];
+
+const prompt = [
+	`Set up ${editor} for IFC files${hasLanguageServer ? ' with the IFC Language Server' : ''} on this computer. Change only what this setup needs, and back up any config file before you edit it.`,
+	'',
+	...steps.map((step, i) => `${i + 1}. ${step}`),
+].join('\n');
+---
+
+<section>
+	<h2 id={agentHeading.slug}>{agentHeading.text}</h2>
+	<p>
+		Paste this prompt into a coding agent, such as Claude Code or Codex. The agent must be able to run commands on
+		your computer.
+	</p>
+	<div class="prompt">
+		<div class="prompt-code">
+			<Code code={prompt} lang="md" title="Prompt" wrap />
+		</div>
+		<div class="actions">
+			<button type="button" class="copy-prompt">
+				<span class="idle">Copy prompt</span><span class="done" hidden>Copied</span>
+			</button>
+			<details>
+				<summary><span class="closed">Show full prompt</span><span class="open">Show less</span></summary>
+			</details>
+		</div>
+	</div>
+</section>
+
+<script>
+	for (const button of document.querySelectorAll<HTMLButtonElement>('.copy-prompt')) {
+		const idle = button.querySelector<HTMLElement>('.idle')!;
+		const done = button.querySelector<HTMLElement>('.done')!;
+		const builtIn = button.closest('.prompt')!.querySelector<HTMLButtonElement>('.expressive-code .copy button')!;
+		new MutationObserver((records) => {
+			const copied = records.some((record) =>
+				[...record.addedNodes].some((node) => node instanceof Element && node.classList.contains('feedback')),
+			);
+			if (!copied) return;
+			idle.hidden = true;
+			done.hidden = false;
+			setTimeout(() => {
+				idle.hidden = false;
+				done.hidden = true;
+			}, 2000);
+		}).observe(builtIn.parentElement!, { childList: true, subtree: true });
+		button.addEventListener('click', () => builtIn.click());
+	}
+</script>
+
+<style>
+	.prompt .actions {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		margin-top: 0.75rem;
+	}
+	.copy-prompt {
+		padding: 0.5rem 1.25rem;
+		border: none;
+		border-radius: 999px;
+		background: var(--sl-color-accent);
+		color: white;
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+	.copy-prompt:hover {
+		filter: brightness(1.1);
+	}
+	.prompt :global(.expressive-code .copy) {
+		display: none;
+	}
+	.prompt:not(:has(details[open])) .prompt-code {
+		max-height: 14rem;
+		overflow: hidden;
+		mask-image: linear-gradient(to bottom, black 65%, transparent);
+	}
+	.prompt details {
+		--sl-details-border-color: transparent;
+		--sl-details-border-color--hover: transparent;
+		margin: 0;
+	}
+	.prompt summary {
+		color: var(--sl-color-gray-3);
+		font-size: var(--sl-text-sm);
+	}
+	.prompt summary:hover {
+		color: var(--sl-color-white);
+	}
+	.prompt details[open] .closed,
+	.prompt details:not([open]) .open {
+		display: none;
+	}
+</style>

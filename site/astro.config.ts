@@ -55,6 +55,9 @@ export default defineConfig({
 			title: 'IFC-LS-integrations',
 			description: 'Editor setups for the IFC Language Server.',
 			social: [{ icon: 'github', label: 'GitHub', href: `https://github.com/${repo}` }],
+			components: {
+				MarkdownContent: './src/components/MarkdownContent.astro',
+			},
 			sidebar: [{ label: 'Home', link: '/' }, ...editorFolders(repoRoot).map((slug) => ({ slug }))],
 		}),
 		readmeImages,
