@@ -33,14 +33,16 @@ function readmeLoader(): Loader {
 					}
 					const data = await parseData({ id, data: { title, hasLanguageServer } });
 					const rendered = await renderMarkdown(body, { fileURL: fileUrl });
-					if (folder) rendered.metadata.headings = [...(rendered.metadata.headings ?? []), agentHeading];
+					const { metadata } = rendered;
+					if (!metadata) throw new Error(`Rendering ${fileURLToPath(fileUrl)} returned no metadata`);
+					if (folder) metadata.headings = [...(metadata.headings ?? []), agentHeading];
 					store.set({
 						id,
 						data,
 						body,
 						rendered,
 						filePath: `../${path}`,
-						assetImports: rendered.metadata?.imagePaths,
+						assetImports: metadata.imagePaths,
 					});
 				}
 			};
