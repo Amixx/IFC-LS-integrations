@@ -1,5 +1,7 @@
 # Neovim
 
+![Neovim with colouring and a hover popup on an IFC file](screenshot.png)
+
 Neovim 0.11 or later. From the root of this repository, copy the syntax, file-type and LSP files into your config:
 
 ```sh
