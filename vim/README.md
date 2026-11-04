@@ -1,5 +1,7 @@
 # Vim
 
+![Vim with colouring and an LspHover popup on an IFC file](screenshot.png)
+
 Vim 9 with [vim-lsp](https://github.com/prabirshrestha/vim-lsp). The syntax file is the one in
 [`neovim/syntax/`](../neovim/syntax/ifc.vim). From the root of this repository, copy the syntax, file-type and server
 files into `~/.vim` and install vim-lsp as a package:
