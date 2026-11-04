@@ -13,5 +13,5 @@ mkdir -p ~/.config/helix/runtime/queries/ifc
 cp ~/.config/helix/runtime/grammars/sources/ifc/queries/highlights.scm ~/.config/helix/runtime/queries/ifc/
 ```
 
-The server connection works at any file size. Helix stops parsing after a fixed 500 ms, so files above roughly 8 MB
+The server connection works at any file size. Helix stops parsing after a fixed 500 ms. Files above roughly 8 MB
 stay uncoloured.
