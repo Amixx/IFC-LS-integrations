@@ -32,9 +32,8 @@ Then add this line to your `vimrc`. It too needs `filetype on` and `syntax on`.
 autocmd User LspSetup call LspAddServer([#{name: 'ifc-language-server', filetype: ['ifc'], path: 'ifc-language-server', args: []}])
 ```
 
-Tested with Vim 9.1.1752 in a terminal and vim-lsp at `977e704`. On a small file, a 13.6 MB file and a 56 MB file,
-colouring, diagnostics, hover, go-to-definition, references and outline work. Diagnostics refresh about 12 s after an
-edit to the 56 MB file. The server only completes the `!ifc` boilerplate, and that works.
+With vim-lsp, colouring, diagnostics, hover, go-to-definition, references and outline work on files of at least
+56 MB. Diagnostics refresh about 12 s after an edit to a 56 MB file. Completion offers the `!ifc` boilerplate.
 
-Neither client requests range semantic tokens. Colouring comes from the syntax file alone. yegappan/lsp was checked
-on the small file for diagnostics, hover, go-to-definition and references.
+There is no semantic colouring with either client. With yegappan/lsp, diagnostics, hover, go-to-definition and
+references work. Not checked yet: yegappan/lsp on large files.
