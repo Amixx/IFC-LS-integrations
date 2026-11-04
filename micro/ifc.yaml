@@ -1,0 +1,34 @@
+filetype: ifc
+
+detect:
+    filename: "\\.[iI][fF][cC]$"
+    header: "^\\s*ISO-10303-21\\s*;"
+
+rules:
+    - type: "\\b[A-Z][A-Z0-9_]*\\b"
+    - statement: "\\b(FILE_DESCRIPTION|FILE_NAME|FILE_SCHEMA|FILE_POPULATION|SECTION_LANGUAGE|SECTION_CONTEXT|SCHEMA_POPULATION)\\b"
+    - constant.number: "[-+]?\\b[0-9]+(\\.[0-9]*)?([eE][-+]?[0-9]+)?"
+    - identifier: "#[0-9]+"
+    - constant: "\\.[A-Z][A-Z0-9_]*\\."
+    - constant.bool: "\\.[TFU]\\."
+    - special: "[$*]"
+    - symbol: "[=(),;]"
+    - preproc: "^\\s*(END-)?ISO-10303-21\\b"
+    - preproc: "^\\s*(HEADER|DATA|ENDSEC)\\b"
+
+    - constant.string:
+        start: "'"
+        end: "'"
+        skip: "''"
+        rules:
+            - constant.specialChar: "\\\\\\\\|\\\\[SP]\\\\.|\\\\X\\\\[0-9A-Fa-f]{2}|\\\\X[24]\\\\[0-9A-Fa-f]*\\\\X0\\\\"
+
+    - constant.string:
+        start: "\""
+        end: "\""
+        rules: []
+
+    - comment:
+        start: "/\\*"
+        end: "\\*/"
+        rules: []
