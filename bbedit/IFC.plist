@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BBEditDocumentType</key>
+	<string>CodelessLanguageModule</string>
+	<key>BBLMLanguageCode</key>
+	<string>IFCs</string>
+	<key>BBLMLanguageDisplayName</key>
+	<string>IFC STEP</string>
+	<key>BBLMSuffixMap</key>
+	<array>
+		<dict>
+			<key>BBLMLanguageSuffix</key>
+			<string>.ifc</string>
+		</dict>
+	</array>
+	<key>BBLMPreferredFilenameExtension</key>
+	<string>ifc</string>
+	<key>BBLMColorsSyntax</key>
+	<true/>
+	<key>BBLMIsCaseSensitive</key>
+	<true/>
+	<key>BBLMCommentPrefixDefault</key>
+	<string>/* </string>
+	<key>BBLMCommentSuffixDefault</key>
+	<string> */</string>
+	<key>BBLMKeywordList</key>
+	<array>
+		<string>ISO-10303-21</string>
+		<string>HEADER</string>
+		<string>DATA</string>
+		<string>ENDSEC</string>
+		<string>END-ISO-10303-21</string>
+	</array>
+	<key>BBLMLanguageServerInfo</key>
+	<dict>
+		<key>ServerCommand</key>
+		<string>ifc-language-server</string>
+		<key>ServerLanguageID</key>
+		<string>ifc</string>
+		<key>ServerInitParams</key>
+		<dict>
+			<key>semanticTokensEnabled</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>Language Features</key>
+	<dict>
+		<key>Identifier and Keyword Character Class</key>
+		<string>A-Za-z0-9_\-</string>
+		<key>Comment Pattern</key>
+		<string>(?s:/\*.*?\*/)</string>
+		<key>String Pattern</key>
+		<string>'(?:[^']|'')*'</string>
+		<key>Number Pattern</key>
+		<string>(?x: \#[0-9]+ | (?&lt;![A-Za-z0-9_\-])[-+]?[0-9]+(?:\.[0-9]*)?(?:[Ee][-+]?[0-9]+)? | \.[A-Z][A-Z0-9_]*\. )</string>
+		<key>Keyword Pattern</key>
+		<string>\bIFC[A-Z0-9_]+\b</string>
+	</dict>
+</dict>
+</plist>
