@@ -1,5 +1,7 @@
 # Emacs
 
+![Emacs with colouring and an Eglot hover on an IFC file](screenshot.png)
+
 Emacs 29 or later (tested with Emacs 31.1 and its built-in Eglot). Put [`ifc-mode.el`](ifc-mode.el) in a directory on
 your `load-path` and add to `init.el`:
 
