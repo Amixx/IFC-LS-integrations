@@ -2,9 +2,9 @@
 
 ![Vim with colouring and an LspHover popup on an IFC file](screenshot.png)
 
-Vim 9 with [vim-lsp](https://github.com/prabirshrestha/vim-lsp). The syntax file is the one in
+You need Vim 9 with [vim-lsp](https://github.com/prabirshrestha/vim-lsp). The syntax file is the one in
 [`neovim/syntax/`](../neovim/syntax/ifc.vim). From the root of this repository, copy the syntax, file-type and server
-files into `~/.vim` and install vim-lsp as a package:
+files into `~/.vim`. Then install vim-lsp as a package:
 
 ```sh
 mkdir -p ~/.vim/syntax ~/.vim/pack/plugins/start
@@ -14,10 +14,10 @@ git clone https://github.com/prabirshrestha/vim-lsp ~/.vim/pack/plugins/start/vi
 ```
 
 Your `vimrc` needs `filetype on` and `syntax on`.
-[`plugin/ifc-lsp.vim`](plugin/ifc-lsp.vim) registers the server and sets omni completion (`CTRL-X CTRL-O`) for IFC
-buffers. Use `:LspHover`, `:LspDefinition`, `:LspReferences` and `:LspDocumentSymbol`.
+[`plugin/ifc-lsp.vim`](plugin/ifc-lsp.vim) registers the server. It also sets omni completion (`CTRL-X CTRL-O`) for
+IFC buffers. Use `:LspHover`, `:LspDefinition`, `:LspReferences` and `:LspDocumentSymbol`.
 
-With [yegappan/lsp](https://github.com/yegappan/lsp) instead, run these in place of the block above:
+To use [yegappan/lsp](https://github.com/yegappan/lsp) instead, run these in place of the block above:
 
 ```sh
 mkdir -p ~/.vim/syntax ~/.vim/pack/plugins/start
@@ -26,14 +26,15 @@ cp -R vim/ftdetect ~/.vim/
 git clone https://github.com/yegappan/lsp ~/.vim/pack/plugins/start/lsp
 ```
 
-and add to your `vimrc`, which also needs `filetype on` and `syntax on`:
+Then add this line to your `vimrc`. It too needs `filetype on` and `syntax on`.
 
 ```vim
 autocmd User LspSetup call LspAddServer([#{name: 'ifc-language-server', filetype: ['ifc'], path: 'ifc-language-server', args: []}])
 ```
 
-Tested with Vim 9.1.1752 in a terminal and vim-lsp at `977e704`: on a small file, a 13.6 MB file and a 56 MB file,
-colouring, diagnostics, hover, go-to-definition, references and outline work; diagnostics refresh about 12 s after an
-edit to the 56 MB file. The server only completes the `!ifc` boilerplate, which works. Neither client requests range
-semantic tokens, so colouring comes from the syntax file alone. yegappan/lsp was checked on the small file for
-diagnostics, hover, go-to-definition and references.
+Tested with Vim 9.1.1752 in a terminal and vim-lsp at `977e704`. On a small file, a 13.6 MB file and a 56 MB file,
+colouring, diagnostics, hover, go-to-definition, references and outline work. Diagnostics refresh about 12 s after an
+edit to the 56 MB file. The server only completes the `!ifc` boilerplate, and that works.
+
+Neither client requests range semantic tokens. Colouring comes from the syntax file alone. yegappan/lsp was checked
+on the small file for diagnostics, hover, go-to-definition and references.
