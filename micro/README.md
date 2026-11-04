@@ -4,6 +4,8 @@ From the root of this repository, copy the syntax file and install the
 [lsp](https://github.com/AndCake/micro-plugin-lsp) plugin. If you already have `settings.json`, merge the two keys from
 [`settings.json`](settings.json) into it instead of copying it.
 
+![micro with colouring and a diagnostic on an IFC file](screenshot.png)
+
 ```sh
 mkdir -p ~/.config/micro/syntax
 cp micro/ifc.yaml ~/.config/micro/syntax/ifc.yaml
