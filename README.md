@@ -1,10 +1,12 @@
 # IFC-LS-integrations
 
-Editor setups for the [IFC Language Server](https://github.com/NepomukWolf/IFC-Language-Server): syntax files and
-language-client configuration for editors that need no extension of their own.
+Editor setups for the [IFC Language Server](https://github.com/NepomukWolf/IFC-Language-Server). Each one holds syntax
+files and language-client configuration for an editor that needs no extension of its own.
 
-VS Code and Zed have their own extensions: [vscode-ifc](https://github.com/NepomukWolf/vscode-ifc) and
+VS Code and Zed have their own extensions, [vscode-ifc](https://github.com/NepomukWolf/vscode-ifc) and
 [zed-ifc](https://github.com/Finradon/zed-ifc).
+
+The setup guides are also on the [documentation site](https://amixx.github.io/IFC-LS-integrations/).
 
 ## Setup
 
@@ -12,9 +14,8 @@ VS Code and Zed have their own extensions: [vscode-ifc](https://github.com/Nepom
    [Releases](https://github.com/NepomukWolf/IFC-Language-Server/releases) and put it on your `PATH`.
 2. Follow your editor's README below.
 
-Files above the server's `astFileSizeLimitMb` (see its
-[Configuration](https://github.com/NepomukWolf/IFC-Language-Server#configuration)) get only the features that don't
-need the full syntax tree.
+Files above the server's `astFileSizeLimitMb` get only the features that don't need the full syntax tree. See the
+server's [Configuration](https://github.com/NepomukWolf/IFC-Language-Server#configuration).
 
 ## Editors
 

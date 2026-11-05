@@ -1,0 +1,81 @@
+---
+import { Code } from '@astrojs/starlight/components';
+import { agentHeading, repo } from '../readmes';
+
+interface Props {
+	folder: string;
+	editor: string;
+	hasLanguageServer: boolean;
+}
+
+const { folder, editor, hasLanguageServer } = Astro.props;
+
+const terminalEditors = new Set(['neovim', 'vim', 'helix', 'micro', 'kakoune']);
+const gui = !terminalEditors.has(folder);
+
+const prompt = [
+	`Set up ${editor} for IFC files on this computer by following https://github.com/${repo}/blob/main/${folder}/README.md.`,
+	...(hasLanguageServer
+		? [
+				`First install the \`ifc-language-server\` build for this system from https://github.com/NepomukWolf/IFC-Language-Server/releases/latest, without sudo, and put it on \`PATH\`. It has no \`--version\` flag; check it by opening an \`.ifc\` file in the editor.${gui ? " Apps opened from the macOS Dock don't inherit the shell's `PATH`, so give the editor the server's absolute path." : ''}`,
+			]
+		: []),
+	'Change only what this setup needs. Back up any config file before you edit it, and merge into existing settings instead of overwriting them.',
+	'Check that it works where you can. Then tell me what you changed, including any shell profile, how to undo it, and what I should check myself.',
+].join('\n\n');
+---
+
+<section>
+	<h2 id={agentHeading.slug}>{agentHeading.text}</h2>
+	<p>
+		Paste this prompt into a coding agent, such as Claude Code or Codex. The agent must be able to run commands on
+		your computer.
+	</p>
+	<div class="prompt">
+		<Code code={prompt} lang="md" title="Prompt" wrap />
+		<button type="button" class="copy-prompt">
+			<span class="idle">Copy prompt</span><span class="done" hidden>Copied</span>
+		</button>
+	</div>
+</section>
+
+<script>
+	for (const button of document.querySelectorAll<HTMLButtonElement>('.copy-prompt')) {
+		const idle = button.querySelector<HTMLElement>('.idle')!;
+		const done = button.querySelector<HTMLElement>('.done')!;
+		const builtIn = button.closest('.prompt')!.querySelector<HTMLButtonElement>('.expressive-code .copy button')!;
+		new MutationObserver((records) => {
+			const copied = records.some((record) =>
+				[...record.addedNodes].some((node) => node instanceof Element && node.classList.contains('feedback')),
+			);
+			if (!copied) return;
+			idle.hidden = true;
+			done.hidden = false;
+			setTimeout(() => {
+				idle.hidden = false;
+				done.hidden = true;
+			}, 2000);
+		}).observe(builtIn.parentElement!, { childList: true, subtree: true });
+		button.addEventListener('click', () => builtIn.click());
+	}
+</script>
+
+<style>
+	.copy-prompt {
+		margin-top: 0.75rem;
+		padding: 0.5rem 1.25rem;
+		border: none;
+		border-radius: 999px;
+		background: var(--sl-color-accent);
+		color: white;
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+	.copy-prompt:hover {
+		filter: brightness(1.1);
+	}
+	.prompt :global(.expressive-code .copy) {
+		display: none;
+	}
+</style>

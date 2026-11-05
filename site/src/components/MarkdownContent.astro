@@ -1,0 +1,25 @@
+---
+import { Aside } from '@astrojs/starlight/components';
+import Default from '@astrojs/starlight/components/MarkdownContent.astro';
+import AgentSetup from './AgentSetup.astro';
+
+const { entry } = Astro.locals.starlightRoute;
+const { hasLanguageServer } = entry.data;
+---
+
+<Default>
+	{
+		hasLanguageServer === undefined && (
+			<Aside type="tip">
+				Each editor page ends with a prompt for a coding agent, such as Claude Code or Codex. Paste it in, and the
+				agent installs the server and sets up the editor for you.
+			</Aside>
+		)
+	}
+	<slot />
+	{
+		hasLanguageServer !== undefined && (
+			<AgentSetup folder={entry.id} editor={entry.data.title} hasLanguageServer={hasLanguageServer} />
+		)
+	}
+</Default>
