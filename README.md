@@ -23,6 +23,7 @@ server's [Configuration](https://github.com/NepomukWolf/IFC-Language-Server#conf
 | ------ | --------- | --------------- |
 | [Notepad++](notepad++) | User-defined language | None |
 | [EmEditor](emeditor) | Syntax file | None |
+| [UltraEdit](ultraedit) | Wordfile | None |
 | [JetBrains IDEs](jetbrains) | TextMate bundle | LSP4IJ plugin, without semantic tokens |
 | [Sublime Text](sublime) | Syntax definition, semantic tokens | LSP package |
 | [Vim](vim) | Syntax file | vim-lsp, without semantic tokens |

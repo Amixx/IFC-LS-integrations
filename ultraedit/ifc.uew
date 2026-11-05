@@ -1,0 +1,19 @@
+/L20"IFC STEP" Block Comment On = /* Block Comment Off = */ String Chars = ' DisableMLS File Extensions = IFC
+/Delimiters = $	&'()*,/;= 
+/C1"Sections"
+DATA
+END-ISO-10303-21 ENDSEC
+HEADER
+ISO-10303-21
+/C2"Header entities"
+FILE_DESCRIPTION FILE_NAME FILE_POPULATION FILE_SCHEMA
+SCHEMA_POPULATION SECTION_CONTEXT SECTION_LANGUAGE
+/C3"Entities"
+** IFC
+/C4"References"
+** #
+/C5"Enumerations and booleans"
+** .A .B .C .D .E .F .G .H .I .J .K .L .M .N .O .P .Q .R .S .T .U .V .W .X .Y .Z
+/C6"Null and derived"
+$
+*
