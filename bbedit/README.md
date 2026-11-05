@@ -15,5 +15,3 @@ BBEdit's free mode keeps the colouring but has no LSP support.
 
 Diagnostics work, with errors underlined and counted in the navigation bar. BBEdit shows no outline and no
 semantic colouring.
-
-Not checked yet: hover, go to definition, references, completion and signature help.

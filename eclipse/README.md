@@ -33,5 +33,3 @@ inlay hints, outline and the `!` scaffold completion work. Files up to about 9 M
 
 Files with very long lines freeze Eclipse. A 13.6 MB file with a 1 MB line shows colouring, outline and hover, then
 freezes. A 56 MB file gets colouring, but its outline never arrives. Semantic colouring isn't available in Eclipse.
-
-Not checked yet: macOS, Windows, signature help.
